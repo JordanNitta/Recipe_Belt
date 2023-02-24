@@ -1,0 +1,180 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color-white: #FFFFFF;
+    --main-color: #000000;
+    --main-font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+ /* Page header */
+.navbar{
+    display: flex;
+    flex: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.layout-header-left{
+    align-items: flex-start;
+    display: flex;
+    margin: 1rem;
+}
+
+.layout-header-right{
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin: 1rem;
+}
+#search-bar{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border: bottom 1px solid black;
+    box-shadow: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--main-color);
+}
+#search-bar:focus{
+    outline: none;
+    /* transform: translateY(-20px); */
+}
+
+/* Account info page */
+.account-info{
+    display: flex;
+    flex: wrap;
+    margin-left: 5rem;
+    margin-top: 5rem;
+}
+
+.log-in-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.log-in-info > input[type=text]{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border: bottom 1px solid black;
+    margin-top: 3rem;
+    width: 400px;
+}
+/* Wont show a box when you click input fields */
+input[type=text]:focus{
+    outline: none;
+}
+input[type=password]:focus{
+    outline: none;
+}
+
+.invalid-field{
+    border-bottom: 1px solid red;
+}
+
+.log-in-info > input[type=password]{
+    position: static;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border: bottom 1px solid black;
+    margin-top: 3rem;
+    width: 400px;
+}
+
+i > .material-icons{
+    position: absolute;
+    padding-top: 2.2rem;
+    padding-left: 11rem;
+    cursor: pointer;
+}
+
+
+.log-in-info > input[type=submit]{
+    width: 400px;
+    height: 40px;
+    border: hidden;
+    margin-top: 3rem;
+    background-color: var(--main-color);
+    color: var(--main-color-white);
+    font-family: var(--main-font-family);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.register-account{
+    display: flex;
+    flex-direction: column;
+    margin-left:  10rem;
+}
+
+.register-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Register Button */
+.register-info > a, button{ 
+    height: 40px;
+    width: 400px;
+    text-align: center;
+    margin-top: 1rem;
+    background-color: white;
+    border: 1px solid black;
+}
+
+h5{
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: var(--main-font-family);
+    color: var(--main-color);
+}
+/* .log-in-info > input */
+
+.register-email > input[type=text]{
+    position: relative;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border: bottom 1px solid black;
+    margin-top: 3rem;
+    width: 400px;
+}
+.register-password > input[type=password]{
+    position: relative;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border: bottom 1px solid black;
+    margin-top: 3rem;
+    width: 400px;
+}
+
+.register-password > input[type=password]:nth-child(2){
+    margin-left: 2rem;
+}
+
+.register-name > input[type=text]{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border: bottom 1px solid black;
+    margin-top: 3rem;
+    width: 400px;
+}
+
+.register-name > input[type=text]:nth-child(2){
+    margin-left: 2rem;
+}
+
+

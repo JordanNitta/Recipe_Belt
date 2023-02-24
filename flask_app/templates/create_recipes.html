@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Create Recipe</title>
+</head>
+
+<body>
+    <header class="container d-flex ">
+        <div class="col-6">
+            <h2>Add A New Recipe!</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <a href="/recipes">Back To Recipes</a>
+            <a href="/logout" style="margin-left: 2rem">Log Out</a>
+        </div>
+    </header>
+    <div class="container mt-4">
+        <form action="/process/recipe" method="post">
+            <input type="hidden" name="user_id" value="{{session.user_id}}">
+            <div class="mb-4 d-flex">
+                <label for="name" class="form-label col-sm-1">Name:</label>
+                <div class="col-sm-4">
+                    {% with error_name_messages = get_flashed_messages(category_filter = ['error_name']) %} <!-- declare a variable called messages -->
+                    <input type="text" class="form-control" name="name" style="margin-left: 10px;">
+                    {% if error_name_messages %} <!-- check if there are any messages -->
+                    {% for message in error_name_messages %} <!-- loop through the messages -->
+                        <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+    
+                </div>
+            </div>
+
+            <div class="mb-4 d-flex">
+                <label for="description" class="form-label col-sm-1">Description:</label>
+                <div class="col-sm-4">
+                    {% with error_description_messages = get_flashed_messages(category_filter = ['error_description']) %} <!-- declare a variable called messages -->
+                    <textarea class="form-control" name="description"style="height: 100px; margin-left: 10px;"></textarea>
+                    {% if error_description_messages %} <!-- check if there are any messages -->
+                    {% for message in error_description_messages %} <!-- loop through the messages -->
+                        <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                
+            </div>
+
+            <div class="mb-4 d-flex">
+                <label for="instructions" class="form-label col-sm-1">Instructions:</label>
+                <div class="col-sm-4">
+                    {% with error_instructions_messages = get_flashed_messages(category_filter = ['error_instructions']) %} <!-- declare a variable called messages -->
+                    <textarea class="form-control" name="instructions"style="height: 100px; margin-left: 10px;"></textarea>
+                    {% if error_instructions_messages %} <!-- check if there are any messages -->
+                    {% for message in error_instructions_messages %} <!-- loop through the messages -->
+                        <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="date_made" class="form-label">Date Cooked Made:</label>
+                <input type="date" name="date_made">
+            </div>
+
+            <div class="mb-3">
+                <label for="under_30" class="form-label" id="yes">Under 30</label><br>
+                <label for="yes">yes</label>
+                <input type="radio" name="under_30" value="1">
+                <label for="no" id="no">No</label>
+                <input type="radio" name="under_30" value="0">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='logon.css') }}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Register Account</title>
+</head>
+<style>
+    .flash-message{
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 10px;
+        font-weight: 300;
+    }
+
+</style>
+<body>
+    <div class=".container">
+        <div class="navbar">
+            <div class="layout-header-left">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </div>
+            <div class="layout-header-right">
+                <input type="text" id="search-bar" name="search" placeholder="search">
+            </div>
+        </div>
+        <div class="account-info">
+            <div class="log-on">
+                <h5>PERSONAL DETAILS</h5>
+                <form action="/signup" method="POST" class="log-in-info">
+                    <div class="register-email">
+                        {% with email_messages = get_flashed_messages(category_filter = ['email']) %} <!-- declare a variable called messages -->
+                        <input type="text" name="email" placeholder="email" class="invalid-field">
+                        {% if email_messages %} <!-- check if there are any messages -->
+                            {% for message in email_messages %} <!-- loop through the messages -->
+                                <p class="flash-message">{{message}}</p> <!-- display each message in a paragraph tag -->
+                            {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+
+                        {% with email_in_database = get_flashed_messages(category_filter = ['existing_email']) %} 
+                        {% if email_in_database %} <!-- check if there are any messages -->
+                        {% for message in email_in_database %} <!-- loop through the messages -->
+                            <p class="flash-message">{{message}}</p> 
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                        
+                    </div>
+                    <div class="register-password">
+                        {% with password_messages = get_flashed_messages(category_filter = ['password']) %}
+                        <input type="password" name="password" placeholder="password" class="invalid-field">
+                        <input type="password" name="confirm-password" placeholder="confirm password" class="invalid-field">
+                        
+                        {% if password_messages %} <!-- check if there are any messages -->
+                            {% for message in password_messages %} <!-- loop through the messages -->
+                            <p class="flash-message">{{message}}</p> <!-- display each message in a paragraph tag -->
+                            {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <div class="register-name">
+                        <input type="text" name="first_name" placeholder="first name" class="invalid-field">
+                        <input type="text" name="last_name" placeholder="last name" class="invalid-field">
+                    </div>
+                        <input type="submit" value="Create Account">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
