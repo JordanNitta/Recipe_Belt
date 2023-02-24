@@ -1,4 +1,4 @@
 # Recipe
 <h1>Wire Frame</h1>
-<a href="wireframe/wireframe_one" alt="wireframe"></a>
-<a href="wireframe/wireframe_two" alt="wireframe"></a>
+<img src="wireframe/wireframe_one" alt="wireframe">
+<img arc="wireframe/wireframe_two" alt="wireframe">
